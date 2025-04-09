@@ -551,8 +551,8 @@ local function anims()
 
     local flywalkbackState = creativeFlying and backward
     local flysprintState = creativeFlying and sprinting and not isJumping and (not (goingDown or goingUp))
-    local flyupState = creativeFlying and goingUp
-    local flydownState = creativeFlying and goingDown
+    local flyupState = creativeFlying and goingUp and not backward
+    local flydownState = creativeFlying and goingDown and not backward
     local flywalkState = creativeFlying and forward and (not (goingDown or goingUp)) and not sleeping or (flysprintState and not path.flysprint) or (flywalkbackState and not path.flywalkback)
     or (flyupState and not path.flyup) or (flydownState and not path.flydown)
     local flyState = creativeFlying and not moving and standing and not isJumping and (not (goingDown or goingUp)) and not sleeping or (flywalkState and not path.flywalk) 

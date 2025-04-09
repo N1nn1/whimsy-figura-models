@@ -4,6 +4,7 @@ vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 vanilla_model.HELMET_ITEM:setVisible(true)
 vanilla_model.HELMET:setVisible(true)
+vanilla_model.CHESTPLATE:setVisible(true)
 vanilla_model.CAPE:setVisible(false)
 vanilla_model.ELYTRA:setVisible(false)
 
@@ -66,8 +67,8 @@ function events.render(delta, context)
     end
 
     -- custom arm
-    models.model.root.LeftArm:setVisible(context == "FIRST_PERSON")
-    models.model.root.RightArm:setVisible(context == "FIRST_PERSON")
+    models.model.root.LeftArm:setVisible(context == "FIRST_PERSON" and not player:isFlying())
+    models.model.root.RightArm:setVisible(context == "FIRST_PERSON" and not player:isFlying())
 
     -- wings
     models.model.root.harpy.torso.leftWing.leftWingClose:setVisible(not player:isFlying())
